@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validationform()
+        {
+            console.log("working");
+            var name=document.myform.name.value;
+            var password=document.myform.password.value;
+            var num=document.myform.num.value;            
+            var email=document.myform.email.value;
+            var atposition=email.indexOf("@");
+            var dotposition=email.lastIndexOf(".");
+            if(name==null || name=="")
+            {
+                alert("name cant be blank");
+                return false;
+        
+            }
+            if(password.length<6)
+            {
+                alert("password must be at least 6 characters long");
+                return false;
+            }
+            if(isNaN(num))
+            {
+                alert("enter numeric velue only");
+                return false;
+            }
+            if(atposition<1 || dotposition<atposition+2 || dotposition+2>=email.length)
+                {
+                    alert("please enter a valid email address\n atposition:"+atposition+"\n dotposition:"+dotposition);
+                    return false;
+                }
+
+
+        }
+        
+    </script>
+</head>
+<body>
+    
+    <center>
+        <h1>VALIDATION</h1>
+        <form name="myform" method="post" onsubmit="return validationform()">
+        Name:<input type="text" name="name"><br><br>
+        Password:<input type="password" name="password"><br><br>
+       Phone Number:<input type="text" name="num"><br><br>
+       Email:<input type="text" name="email"><br><br>
+       <input type="submit" value="register">
+        
+        
+        </form>
+    </center>
+</body>
+</html>
